@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Logo() {
+export default function ProtocolLogo() {
     return (
         <div className="hidden lg:flex">
             <Link ariaLabel="Home" href="/">

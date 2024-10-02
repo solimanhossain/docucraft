@@ -1,11 +1,7 @@
-import Header from "@/components/Header";
-import { getDoc } from "@/lib/docs";
 export default function page() {
-    getDoc();
-
     return (
-        <main class="h-full lg:ml-72 xl:ml-80">
-            <Header />
+        <main className="relative px-4 pt-14 sm:px-6 lg:px-8">
+            <div className="flex-auto py-16"></div>
         </main>
     );
 }

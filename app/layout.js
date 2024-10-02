@@ -1,5 +1,7 @@
 import "./globals.css";
+import Header from "@/components/Header";
 import localFont from "next/font/local";
+import { getDocs } from "@/lib/docs";
 
 const geistSans = localFont({
     src: "../public/assets/fonts/GeistVF.woff",
@@ -18,11 +20,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const docs = getDocs();
+    // console.log(docs);
+
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased h-full lg:ml-72 xl:ml-80`}
             >
+                <Header docs={docs} />
                 {children}
             </body>
         </html>
