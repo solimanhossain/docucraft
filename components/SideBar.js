@@ -19,7 +19,7 @@ export default function SideBar({ docs }) {
                     {parentsDocs.map((parentList) => (
                         <li key={parentList.id} className="relative">
                             <Link
-                                ariaCurrent="page"
+                                aria-current="page"
                                 className="flex justify-between gap-2 py-1 pl-4 pr-3 text-sm text-zinc-900 transition dark:text-white"
                                 href={`/docs/${parentList.id}`}
                             >
