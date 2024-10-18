@@ -1,18 +1,52 @@
-import { getDocs } from "@/lib/docs";
+import Link from "next/link";
+import { getDocContent } from "@/lib/docs";
+import { notFound } from "next/navigation";
+import Gradient from "@/components/Gradient";
 
 export default function DocPage({ params: { docId } }) {
-    const docs = getDocs();
     const id = docId[1] ?? docId[0];
-    const docPageContents = docs.filter((doc) => doc.id === id);
+    const docContents = getDocContent(id);
+    if (!docContents) {
+        notFound();
+    }
 
     return (
-        <main className="relative px-4 pt-14 sm:px-6 lg:px-8">
-            <div className="flex-auto py-16">
-                <div className="m-8 p-4 border">
-                    <h1 className="capitalize text-2xl p-2">{id}</h1>
-                    <p className="m-4">{docPageContents[0].content}</p>
-                </div>
+        <article className="prose dark:prose-invert">
+            <Gradient />
+
+            <h1>{docContents.title}</h1>
+
+            <div>
+                <span>Published On: {docContents.date}</span>
+                {" by "}
+                <Link href={`/authors/${docContents.author}`}>
+                    {docContents.author}
+                </Link>
+                {" under the "}
+                <Link href={`/categories/${docContents.category}`}>
+                    {docContents.category}
+                </Link>
+                {" category."}
             </div>
-        </main>
+
+            <div>
+                {docContents.tags.map((tag) => (
+                    <Link
+                        key={tag}
+                        href={`/tags/${tag}`}
+                        className="bg-emerald-100 dark:bg-emerald-600 p-1 rounded-sm mr-2 text-xs"
+                    >
+                        {tag}
+                    </Link>
+                ))}
+            </div>
+
+            <div
+                className=" lead"
+                dangerouslySetInnerHTML={{
+                    __html: docContents.content,
+                }}
+            />
+        </article>
     );
 }

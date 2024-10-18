@@ -1,7 +1,6 @@
 import "./globals.css";
-import Header from "@/components/Header";
 import localFont from "next/font/local";
-import { getDocs } from "@/lib/docs";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const geistSans = localFont({
@@ -21,16 +20,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    const docs = getDocs();
-    // console.log(docs);
-
     return (
         <html lang="en">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased h-full lg:ml-72 xl:ml-80`}
             >
-                <Header docs={docs} />
-                {children}
+                <Header />
+                <main className="relative px-4 pt-14 sm:px-6 lg:px-8">
+                    <div className="flex-auto py-16">{children}</div>
+                </main>
                 <Footer />
             </body>
         </html>

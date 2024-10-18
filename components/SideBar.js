@@ -1,4 +1,4 @@
-import { groupBy } from "@/lib/groupBy";
+import { groupBy } from "@/utils/groupBy";
 import Link from "next/link";
 
 export default function SideBar({ docs }) {
