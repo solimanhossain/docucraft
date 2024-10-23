@@ -50,7 +50,7 @@ export default function SearchButton({ docs }) {
                 />
                 <kbd className="ml-auto w-auto text-2xs text-zinc-400 dark:text-zinc-500">
                     <kbd className="font-sans">Ctrl </kbd>
-                    <kbd className="font-sans">F</kbd>
+                    <kbd className="font-sans">K</kbd>
                 </kbd>
             </button>
 

@@ -1,12 +1,9 @@
-import Gradient from "@/components/Gradient";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
     return (
         <article className="prose dark:prose-invert">
-            <Gradient />
-
             <h1>Documentation</h1>
 
             <p className="lead my-2">

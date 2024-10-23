@@ -1,10 +1,8 @@
-import Gradient from "@/components/Gradient";
 import Link from "next/link";
 
 export default function NotFound() {
     return (
         <div className="prose dark:prose-invert">
-            <Gradient />
             <h1 className="text-3xl font-bold text-red-700">Not Found!</h1>
             <p>Could not find requested page.</p>
             <Link
